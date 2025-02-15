@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <title>Tweets for {{ keyword }}</title>
+</head>
+<body>
+    <h1>📌 Showing results for: {{ keyword }}</h1>
+
+    {% if tweets %}
+        {% for tweet in tweets %}
+        <div>
+            <h3>{{ tweet['full_name'] }} (@{{ tweet['username'] }})</h3>
+            <p>{{ tweet['content'] }}</p>
+            <p>🕒 {{ tweet['date'] }} | 💬 {{ tweet['comments'] }} | 🔄 {{ tweet['retweets'] }} | 💬 {{ tweet['quotes'] }} | ❤️ {{ tweet['likes'] }}</p>
+            <a href="{{ tweet['tweet_link'] }}" target="_blank">🔗 View Tweet</a>
+            {% for img in tweet['images'] %}
+                <img src="{{ img }}" alt="Tweet Image" style="width: 100%; max-width: 400px;">
+            {% endfor %}
+        </div>
+        <hr>
+        {% endfor %}
+    {% else %}
+        <p>No tweets found for this keyword.</p>
+    {% endif %}
+</body>
+</html>

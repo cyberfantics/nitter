@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweet Viewer</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <h1>🔍 Tweet Viewer</h1>
+
+    <h2>⚙ Manage Keywords</h2>
+    <form method="POST" action="{{ url_for('add_keyword') }}">
+        <input type="text" name="new_keyword" placeholder="Enter new keyword" required>
+        <button type="submit">➕ Add & Scrape Keyword</button>
+    </form>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    <h3>📌 Select a keyword</h3>
+    <ul>
+        {% for keyword in keywords %}
+        <li><a href="{{ url_for('view_tweets', keyword=keyword) }}">{{ keyword }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
