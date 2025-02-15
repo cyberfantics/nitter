@@ -2,7 +2,7 @@ import json
 import os
 import streamlit as st
 import time
-from scraper import scrape_tweets  # Import the scraping function
+from telegram import scrape_tweets  # Import the scraping function
 
 # Directory to store tweet files
 DATA_DIR = "tweets_data"
