@@ -17,7 +17,7 @@ KEYWORDS_FILE = "keywords.json"
 
 # Webhook & Bot Credentials
 TELEGRAM_BOT_TOKEN = "7245489755:AAFxaw-XmOmiIYkn4cVrEWcCXCk1gybYhD4"
-TELEGRAM_CHAT_ID = "5332025293"  # Replace with your chat ID
+TELEGRAM_CHAT_ID = "577964024"  # Replace with your chat ID
 
 def init_driver():
     options = Options()
